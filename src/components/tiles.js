@@ -16,6 +16,7 @@ const projectTabs = [
 
 // Featured project names - these are shown in the FeaturedResearch carousel on homepage
 const FEATURED_PROJECTS = [
+  'GRL-SNAM',
   'Dynamic Belief Games',
   "Actionable Intelligence for Combating Parkinson's Disease",
   'Subsurface Flow Modeling',

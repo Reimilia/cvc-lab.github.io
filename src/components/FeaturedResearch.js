@@ -8,16 +8,20 @@ import './FeaturedResearch.css'
 // Featured projects with their associated videos
 const FEATURED_PROJECTS_DATA = [
   {
+    name: 'GRL-SNAM',
+    video: null,
+  },
+  {
     name: 'Subsurface Flow Modeling',
     video: 'hydro6A80.mp4',
   },
   {
     name: 'Dynamic Belief Games',
-    video: null, // No video yet
+    video: null,
   },
   {
     name: "Actionable Intelligence for Combating Parkinson's Disease",
-    video: null, // No video yet
+    video: null,
   },
 ]
 
