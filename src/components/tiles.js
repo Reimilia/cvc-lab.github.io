@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import { Link } from 'gatsby'
 import { Container, Tabs, Tab } from '@mui/material'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
+import { FaSearch, FaTimes } from 'react-icons/fa'
 import './tiles-modern.css'
 
 const projectTabs = [
@@ -20,8 +21,19 @@ const FEATURED_PROJECTS = [
   'Subsurface Flow Modeling',
 ]
 
+const useDebounce = (value, delay) => {
+  const [debouncedValue, setDebouncedValue] = React.useState(value)
+  React.useEffect(() => {
+    const timer = setTimeout(() => setDebouncedValue(value), delay)
+    return () => clearTimeout(timer)
+  }, [value, delay])
+  return debouncedValue
+}
+
 const Tiles = ({ projectTiles, showAllProjects = false }) => {
   const [activeTab, setActiveTab] = React.useState('All')
+  const [searchInput, setSearchInput] = React.useState('')
+  const debouncedSearch = useDebounce(searchInput, 300)
 
   const handleTabChange = (event, newValue) => {
     setActiveTab(newValue)
@@ -49,19 +61,34 @@ const Tiles = ({ projectTiles, showAllProjects = false }) => {
     return { currentProjects: current, pastProjects: past }
   }, [regularProjects])
 
+  const matchesSearch = React.useCallback(
+    tile => {
+      if (!debouncedSearch) return true
+      const query = debouncedSearch.toLowerCase()
+      return (
+        tile.name.toLowerCase().includes(query) ||
+        tile.description.toLowerCase().includes(query) ||
+        tile.tags.some(tag => tag.toLowerCase().includes(query))
+      )
+    },
+    [debouncedSearch]
+  )
+
   const filteredCurrentProjects = React.useMemo(() => {
-    if (activeTab === 'All') {
-      return currentProjects
+    let projects = currentProjects
+    if (activeTab !== 'All') {
+      projects = projects.filter(tile => tile.tags.includes(activeTab))
     }
-    return currentProjects.filter(tile => tile.tags.includes(activeTab))
-  }, [currentProjects, activeTab])
+    return projects.filter(matchesSearch)
+  }, [currentProjects, activeTab, matchesSearch])
 
   const filteredPastProjects = React.useMemo(() => {
-    if (activeTab === 'All') {
-      return pastProjects
+    let projects = pastProjects
+    if (activeTab !== 'All') {
+      projects = projects.filter(tile => tile.tags.includes(activeTab))
     }
-    return pastProjects.filter(tile => tile.tags.includes(activeTab))
-  }, [pastProjects, activeTab])
+    return projects.filter(matchesSearch)
+  }, [pastProjects, activeTab, matchesSearch])
 
   return (
     <div className="tiles-container" id="projects">
@@ -71,6 +98,29 @@ const Tiles = ({ projectTiles, showAllProjects = false }) => {
           Advancing computational methods at the intersection of machine learning, visualization,
           and scientific computing at the Oden Institute.
         </p>
+
+        {showAllProjects && (
+          <div className="project-search-wrapper">
+            <FaSearch className="project-search-icon" />
+            <input
+              type="text"
+              className="project-search-input"
+              placeholder="Search projects..."
+              value={searchInput}
+              onChange={e => setSearchInput(e.target.value)}
+              aria-label="Search projects"
+            />
+            {searchInput && (
+              <button
+                className="project-search-clear"
+                onClick={() => setSearchInput('')}
+                aria-label="Clear search"
+              >
+                <FaTimes />
+              </button>
+            )}
+          </div>
+        )}
 
         <div className="tabs-container">
           <Tabs
@@ -139,6 +189,14 @@ const Tiles = ({ projectTiles, showAllProjects = false }) => {
             </div>
           </div>
         )}
+
+        {filteredCurrentProjects.length === 0 &&
+          filteredPastProjects.length === 0 &&
+          debouncedSearch && (
+            <p className="section-subtitle" style={{ textAlign: 'center', marginTop: '2rem' }}>
+              No projects found matching &ldquo;{debouncedSearch}&rdquo;
+            </p>
+          )}
       </Container>
     </div>
   )

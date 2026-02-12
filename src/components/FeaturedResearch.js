@@ -67,14 +67,6 @@ const FeaturedResearch = ({ projectTiles }) => {
     }
   }
 
-  // Auto-advance for projects without videos
-  React.useEffect(() => {
-    if (!currentProject?.video) {
-      const timer = setTimeout(goToNext, 8000) // 8 seconds for image-only
-      return () => clearTimeout(timer)
-    }
-  }, [currentIndex, currentProject, goToNext])
-
   if (featuredProjects.length === 0) {
     return null
   }

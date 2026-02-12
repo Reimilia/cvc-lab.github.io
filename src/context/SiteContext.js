@@ -22,7 +22,6 @@ export const SiteProvider = ({ children }) => {
           menuLinks {
             name
             link
-            scroll_link
           }
           softwareProjects {
             category

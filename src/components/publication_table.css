@@ -1,142 +1,285 @@
 @import url('../styles/design-system.css');
 
 .publications-class {
-    background: var(--color-bg-primary);
-    padding: var(--space-3xl) 0;
+  background: var(--color-bg-primary);
+  padding: var(--space-3xl) 0;
+  position: relative;
 }
 
 .publication-container {
-    width: 100%;
-    max-width: var(--max-width-content);
-    margin: 0 auto;
-    padding: 0 var(--space-lg); 
+  width: 100%;
+  max-width: var(--max-width-content);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
 }
 
 .header-sub {
-    color: var(--color-text-primary);
-    font-size: var(--font-size-3xl);
-    font-weight: var(--font-weight-bold);
-    text-align: center;
-    margin: 0 0 var(--space-xl);
+  color: var(--color-text-primary);
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin: 0 0 var(--space-xl);
 }
 
 .header-subtitle {
-    color: var(--color-text-muted);
-    font-size: var(--font-size-sm);
-    font-weight: var(--font-weight-semibold);
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    text-align: center;
-    margin: 0 0 var(--space-xl);
+  color: var(--color-text-muted);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: center;
+  margin: 0 0 var(--space-xl);
 }
 
+/* =============================================
+   YEAR NAVIGATION BAR
+   ============================================= */
+.year-nav {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: var(--color-bg-primary);
+  border-bottom: 2px solid #e5e7eb;
+  padding: var(--space-sm) 0;
+  margin-bottom: var(--space-xl);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--space-xs);
+}
+
+.year-nav-btn {
+  background: transparent;
+  border: 1px solid #d1d5db;
+  border-radius: 9999px;
+  padding: 0.25rem 0.75rem;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  transition: all 150ms ease;
+  font-family: inherit;
+}
+
+.year-nav-btn:hover {
+  background: #bf5700;
+  color: #fff;
+  border-color: #bf5700;
+}
+
+/* =============================================
+   PUBLICATION LIST
+   ============================================= */
 .publication-list {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .year-section {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: var(--space-2xl); 
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-2xl);
+  scroll-margin-top: 60px;
 }
 
 .year-header {
-    text-align: center;
-    font-weight: var(--font-weight-bold);
-    font-size: var(--font-size-2xl);
-    margin-bottom: var(--space-lg);
-    color: var(--color-text-primary);
+  text-align: left;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-2xl);
+  margin-bottom: var(--space-xs);
+  color: var(--color-text-primary);
+}
+
+.year-divider {
+  border: none;
+  border-top: 3px solid #bf5700;
+  margin: 0 0 var(--space-lg);
+  width: 80px;
 }
 
 .type-section {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  margin-bottom: var(--space-lg);
 }
 
 .type-header {
-    font-size: var(--font-size-xl);
-    font-weight: var(--font-weight-semibold);
-    color: var(--color-primary);
-    margin: var(--space-lg) 0 var(--space-md);
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-primary);
+  margin: var(--space-lg) 0 var(--space-md);
 }
 
+/* =============================================
+   PUBLICATION CARDS
+   ============================================= */
 .publication-card {
-    margin-bottom: var(--space-md);
-    padding: var(--space-md);
-    border-radius: var(--radius-md);
-    transition: all var(--transition-fast);
+  margin-bottom: var(--space-xs);
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-fast);
+  border-bottom: 1px solid #f0f0f0;
 }
 
 .publication-card:hover {
-    background: var(--color-bg-secondary);
+  background: var(--color-bg-secondary);
 }
 
 .lower-container-pubs {
-    background: transparent;
-    padding-left: var(--space-xl);
-    font-family: inherit;
+  background: transparent;
+  padding-left: var(--space-xl);
+  font-family: inherit;
+  line-height: 1.6;
 }
 
-.lower-container-pubs h3, h4, p {
-    margin: 0;
-    padding: 0;
-    padding-bottom: .4rem;
+.lower-container-pubs h3,
+.lower-container-pubs h4,
+.lower-container-pubs p {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 0.3rem;
 }
 
 .lower-container-pubs h3 {
-    color: var(--color-text-primary);
-    font-weight: var(--font-weight-semibold);
-    font-size: var(--font-size-base);
-    margin-bottom: var(--space-xs);
+  color: var(--color-text-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: var(--font-size-base);
+  margin-bottom: var(--space-xs);
+  line-height: 1.5;
 }
 
 .lower-container-pubs h4 {
-    color: var(--color-text-secondary);
-    font-weight: var(--font-weight-normal);
-    font-size: var(--font-size-sm);
-    margin-bottom: var(--space-xs);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-normal);
+  font-size: var(--font-size-sm);
+  margin-bottom: var(--space-xs);
+  line-height: 1.5;
 }
 
-.lower-container-pubs a {
-    font-weight: var(--font-weight-medium);
-    font-size: var(--font-size-sm);
-    color: var(--color-primary);
-    text-decoration: none;
-    transition: color var(--transition-fast);
+/* =============================================
+   PUBLICATION LINK PILLS
+   ============================================= */
+.pub-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-sm);
+  margin-top: var(--space-sm);
 }
 
-.lower-container-pubs a:hover {
-    color: var(--color-primary-dark);
-    text-decoration: underline;
+.pub-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: 9999px;
+  font-size: var(--font-size-xs);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  transition: all 150ms ease;
 }
 
+.pub-link-pdf {
+  background: #fef2f2;
+  color: #dc2626;
+  border: 1px solid #fecaca;
+}
+
+.pub-link-pdf:hover {
+  background: #dc2626;
+  color: #fff;
+  border-color: #dc2626;
+}
+
+.pub-link-project {
+  background: #eff6ff;
+  color: #2563eb;
+  border: 1px solid #bfdbfe;
+}
+
+.pub-link-project:hover {
+  background: #2563eb;
+  color: #fff;
+  border-color: #2563eb;
+}
+
+.pub-link-icon {
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
+
+/* =============================================
+   BACK TO TOP BUTTON
+   ============================================= */
+.back-to-top {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #bf5700;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 150ms ease;
+  z-index: 30;
+}
+
+.back-to-top:hover {
+  background: #8c3f00;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* =============================================
+   RESPONSIVE
+   ============================================= */
 @media (max-width: 600px) {
-    .lower-container-pubs h3, 
-    .lower-container-pubs h4, 
-    .lower-container-pubs p {
-        font-size: 0.8rem;
-    }
-
-    .lower-container-pubs {
-        margin-left: 2rem;
-    }
-    
-    .year-header h3 {
-    font-size: 1.2rem;
-    }
-    
-    .type-header {
-    font-size: 1rem;
-    }
-    
-    .header-subtitle {
+  .lower-container-pubs h3,
+  .lower-container-pubs h4,
+  .lower-container-pubs p {
     font-size: 0.8rem;
-    }
-    
-    .publication-container {
+  }
+
+  .lower-container-pubs {
+    margin-left: 2rem;
+  }
+
+  .year-header {
+    font-size: 1.2rem;
+  }
+
+  .type-header {
+    font-size: 1rem;
+  }
+
+  .header-subtitle {
+    font-size: 0.8rem;
+  }
+
+  .publication-container {
     padding: 0 10px;
-    }
+  }
+
+  .year-nav {
+    gap: 0.25rem;
+  }
+
+  .year-nav-btn {
+    padding: 0.2rem 0.5rem;
+    font-size: 0.65rem;
+  }
+
+  .back-to-top {
+    bottom: 1rem;
+    right: 1rem;
+    width: 38px;
+    height: 38px;
+  }
 }
