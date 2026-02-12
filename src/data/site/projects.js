@@ -209,4 +209,13 @@ module.exports = [
     tags: ['Reinforcement Learning', 'Scientific ML'],
     date: '2024-10-20',
   },
+  {
+    name: 'GRL-SNAM',
+    description:
+      'Geometric reinforcement learning with Hamiltonian dynamics for simultaneous navigation and mapping in unknown environments',
+    img_name: 'project_tiles/grl_snam',
+    link: '/projects/grl-snam',
+    tags: ['Reinforcement Learning', 'Scientific ML'],
+    date: '2026-01-01',
+  },
 ]
