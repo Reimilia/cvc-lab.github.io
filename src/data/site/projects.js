@@ -218,4 +218,31 @@ module.exports = [
     tags: ['Reinforcement Learning', 'Scientific ML'],
     date: '2026-01-01',
   },
+  {
+    name: 'PHAST',
+    description:
+      'Port-Hamiltonian neural architecture for stable long-horizon dynamics forecasting across mechanical, electrical, molecular, and ecological systems',
+    img_name: 'project_tiles/phast',
+    link: '/projects/phast',
+    tags: ['Scientific ML'],
+    date: '2026-02-19',
+  },
+  {
+    name: 'Scalable Risk-Averse Well-Placement',
+    description:
+      'Risk-aware shale well selection via quadratic knapsack optimization with randomized SVD acceleration and provable CE-error bounds.',
+    img_name: 'project_tiles/scalable_risk_averse_well_placement',
+    link: '/projects/scalable-risk-averse-well-placement',
+    tags: ['Scientific ML'],
+    date: '2026-01-01',
+  },
+  {
+    name: 'Differential and Pointwise Control RL',
+    description:
+      'Hamiltonian differential-dual reinforcement learning with pointwise trajectory updates for sample-efficient scientific computing.',
+    img_name: 'project_tiles/differential_pointwise_rl',
+    link: '/projects/differential-and-pointwise-control-rl',
+    tags: ['Reinforcement Learning', 'Scientific ML'],
+    date: '2025-12-01',
+  },
 ]

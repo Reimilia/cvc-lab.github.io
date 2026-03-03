@@ -8,6 +8,10 @@ import './FeaturedResearch.css'
 // Featured projects with their associated videos
 const FEATURED_PROJECTS_DATA = [
   {
+    name: 'PHAST',
+    video: null,
+  },
+  {
     name: 'GRL-SNAM',
     video: null,
   },

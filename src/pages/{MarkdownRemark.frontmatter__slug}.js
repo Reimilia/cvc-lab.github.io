@@ -11,15 +11,7 @@ const SponsorsTemplate = ({ data: { markdownRemark } }) => {
   const { frontmatter, html } = markdownRemark
 
   const handleGoBack = () => {
-    // Check if we can go back in history
-    /* eslint-disable-next-line no-undef */
-    if (typeof window !== 'undefined' && window.history.length > 1) {
-      /* eslint-disable-next-line no-undef */
-      window.history.back()
-    } else {
-      // Fallback to home page
-      navigate('/')
-    }
+    navigate('/')
   }
 
   return (
@@ -59,15 +51,7 @@ const DefaultTemplate = ({ data: { markdownRemark } }) => {
   const { frontmatter, html } = markdownRemark
 
   const handleGoBack = () => {
-    // Check if we can go back in history
-    /* eslint-disable-next-line no-undef */
-    if (typeof window !== 'undefined' && window.history.length > 1) {
-      /* eslint-disable-next-line no-undef */
-      window.history.back()
-    } else {
-      // Fallback to projects section on home page
-      navigate('/#projects')
-    }
+    navigate('/projects')
   }
 
   return (
