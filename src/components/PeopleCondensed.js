@@ -7,6 +7,7 @@ import './PeopleCondensed.css'
 // Priority order for faculty/staff
 const FACULTY_POSITIONS = [
   'Director, Principle Investigator',
+  'Researcher',
   'Lead Research Scientist',
   'Research Administrator',
   'Research Fellow from Purdue University',

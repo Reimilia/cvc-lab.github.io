@@ -13,7 +13,7 @@ module.exports = [
   {
     name: 'Ryan Farell',
     image: 'ryan.png',
-    position: 'Lead Research Scientist',
+    position: 'Researcher',
     status: 'current',
   },
   {

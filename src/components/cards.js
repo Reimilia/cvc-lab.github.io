@@ -35,6 +35,7 @@ TabPanel.propTypes = {
 const sortMembers = members => {
   const positionOrder = [
     'Director, Principle Investigator',
+    'Researcher',
     'Research Administrator',
     'Lead Research Scientist',
     'Research Fellow from Purdue University',
@@ -64,7 +65,9 @@ function renderMembersByTitle(members) {
     'High School Student': [],
   }
 
-  const facultyTiles = []
+  const piTiles = []
+  const researcherTiles = []
+  const staffTiles = []
 
   sortedMembers.forEach(member => {
     const position = member.position || member.Position
@@ -78,17 +81,47 @@ function renderMembersByTitle(members) {
       studentsByTitle['Undergraduate Student'].push(member)
     } else if (position === 'High School Student') {
       studentsByTitle['High School Student'].push(member)
+    } else if (
+      positionLower.includes('director') ||
+      positionLower.includes('principal investigator')
+    ) {
+      piTiles.push(member)
+    } else if (
+      (positionLower.includes('researcher') && !positionLower.includes('postdoctoral')) ||
+      positionLower.includes('research scientist')
+    ) {
+      researcherTiles.push(member)
     } else {
-      facultyTiles.push(member)
+      staffTiles.push(member)
     }
   })
 
   return (
     <div className="student-titles">
-      {facultyTiles.length > 0 && <h3 className="title-header">Faculty and Staff</h3>}
-      <Grid container spacing={4} sx={{ marginBottom: '2rem' }}>
-        {facultyTiles.map(people => renderCard(people, true))}
-      </Grid>
+      {piTiles.length > 0 && (
+        <>
+          <h3 className="title-header">Principal Investigator</h3>
+          <Grid container spacing={4} sx={{ marginBottom: '2rem' }}>
+            {piTiles.map(people => renderCard(people, true))}
+          </Grid>
+        </>
+      )}
+      {researcherTiles.length > 0 && (
+        <>
+          <h3 className="title-header">Researchers</h3>
+          <Grid container spacing={4} sx={{ marginBottom: '2rem' }}>
+            {researcherTiles.map(people => renderCard(people, true))}
+          </Grid>
+        </>
+      )}
+      {staffTiles.length > 0 && (
+        <>
+          <h3 className="title-header">Staff & Postdocs</h3>
+          <Grid container spacing={4} sx={{ marginBottom: '2rem' }}>
+            {staffTiles.map(people => renderCard(people, true))}
+          </Grid>
+        </>
+      )}
       <h3 className="title-header">Graduate Students</h3>
       <Grid container spacing={4} className="title-grid">
         {studentsByTitle['Graduate Student'].map(people =>
