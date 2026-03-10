@@ -10,6 +10,7 @@ const FEATURED_PROJECTS_DATA = [
   {
     name: 'PHAST',
     video: null,
+    gif: 'projects/phast/phast_monolithic_demo.gif',
   },
   {
     name: 'GRL-SNAM',
@@ -32,7 +33,9 @@ const FEATURED_PROJECTS_DATA = [
 const FeaturedResearch = ({ projectTiles }) => {
   const [currentIndex, setCurrentIndex] = React.useState(0)
   const [isPlaying, setIsPlaying] = React.useState(true)
+  const [isPaused, setIsPaused] = React.useState(false)
   const videoRef = React.useRef(null)
+  const timerRef = React.useRef(null)
 
   // Get featured projects from projectTiles
   const featuredProjects = React.useMemo(() => {
@@ -44,6 +47,7 @@ const FeaturedResearch = ({ projectTiles }) => {
         return {
           ...tile,
           video: featuredData?.video || null,
+          gif: featuredData?.gif || null,
         }
       })
       .sort((a, b) => {
@@ -75,6 +79,30 @@ const FeaturedResearch = ({ projectTiles }) => {
     }
   }
 
+  const resetTimer = React.useCallback(() => {
+    if (timerRef.current) {
+      clearInterval(timerRef.current)
+    }
+    timerRef.current = setInterval(goToNext, 3000)
+  }, [goToNext])
+
+  // Auto-rotation
+  React.useEffect(() => {
+    if (isPaused || featuredProjects.length <= 1) {
+      if (timerRef.current) {
+        clearInterval(timerRef.current)
+        timerRef.current = null
+      }
+      return
+    }
+    timerRef.current = setInterval(goToNext, 3000)
+    return () => {
+      if (timerRef.current) {
+        clearInterval(timerRef.current)
+      }
+    }
+  }, [isPaused, goToNext, featuredProjects.length])
+
   if (featuredProjects.length === 0) {
     return null
   }
@@ -84,11 +112,18 @@ const FeaturedResearch = ({ projectTiles }) => {
       <div className="featured-research-container">
         <h2 className="featured-research-title">Featured Research</h2>
 
-        <div className="featured-carousel">
+        <div
+          className="featured-carousel"
+          onMouseEnter={() => setIsPaused(true)}
+          onMouseLeave={() => setIsPaused(false)}
+        >
           {/* Navigation - Previous */}
           <button
             className="carousel-nav carousel-nav-prev"
-            onClick={goToPrev}
+            onClick={() => {
+              goToPrev()
+              resetTimer()
+            }}
             aria-label="Previous project"
           >
             <FaChevronLeft />
@@ -118,6 +153,14 @@ const FeaturedResearch = ({ projectTiles }) => {
                       >
                         {isPlaying ? <FaPause /> : <FaPlay />}
                       </button>
+                    </div>
+                  ) : currentProject.gif ? (
+                    <div className="featured-image-wrapper">
+                      <img
+                        src={require(`../images/${currentProject.gif}`).default}
+                        alt={`${currentProject.name} preview`}
+                        className="featured-image"
+                      />
                     </div>
                   ) : (
                     <div className="featured-image-wrapper">
@@ -174,7 +217,10 @@ const FeaturedResearch = ({ projectTiles }) => {
           {/* Navigation - Next */}
           <button
             className="carousel-nav carousel-nav-next"
-            onClick={goToNext}
+            onClick={() => {
+              goToNext()
+              resetTimer()
+            }}
             aria-label="Next project"
           >
             <FaChevronRight />
@@ -187,7 +233,10 @@ const FeaturedResearch = ({ projectTiles }) => {
             <button
               key={project.name}
               className={`carousel-indicator ${index === currentIndex ? 'active' : ''}`}
-              onClick={() => setCurrentIndex(index)}
+              onClick={() => {
+                setCurrentIndex(index)
+                resetTimer()
+              }}
               aria-label={`Go to ${project.name}`}
             />
           ))}

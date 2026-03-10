@@ -120,7 +120,7 @@ module.exports = [
   },
   {
     name: 'Aaroh Gokhale',
-    image: 'placeholder.png',
+    image: 'aaroh.png',
     position: 'Undergraduate Student',
     status: 'current',
   },
@@ -146,6 +146,12 @@ module.exports = [
     name: 'Krishiv Potluri',
     image: 'placeholder.png',
     position: 'Researcher',
+    status: 'current',
+  },
+  {
+    name: 'Harsh Tirhekar',
+    image: 'harsh.png',
+    position: 'Graduate Student',
     status: 'current',
   },
   {
