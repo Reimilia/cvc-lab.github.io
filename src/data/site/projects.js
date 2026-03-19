@@ -245,4 +245,13 @@ module.exports = [
     tags: ['Reinforcement Learning', 'Scientific ML'],
     date: '2025-12-01',
   },
+  {
+    name: 'Pathway-Anchored PD Clustering',
+    description:
+      "Pathway-aware multimodal MRI, diffusion MRI, and DaT-SPECT clustering reveals interpretable circuit-level signatures in Parkinson's disease via SRVCC and MPIS.",
+    img_name: 'project_tiles/pathway_anchored_pd_clustering',
+    link: '/projects/pathway-anchored-pd-clustering',
+    tags: ['Health AI/ML', 'Scientific ML'],
+    date: '2025-12-15',
+  },
 ]
