@@ -246,6 +246,15 @@ module.exports = [
     date: '2025-12-01',
   },
   {
+    name: 'Integrated PD Precision Stratification',
+    description:
+      "Integrated Parkinson's biomarker stratification across genetics, molecular assays, wearable gait sensing, Bayesian clustering, and calibrated risk modeling.",
+    img_name: 'project_tiles/integrated_pd_precision_stratification',
+    link: '/projects/integrated-pd-precision-stratification',
+    tags: ['Health AI/ML', 'Scientific ML'],
+    date: '2025-12-04',
+  },
+  {
     name: 'Pathway-Anchored PD Clustering',
     description:
       "Pathway-aware multimodal MRI, diffusion MRI, and DaT-SPECT clustering reveals interpretable circuit-level signatures in Parkinson's disease via SRVCC and MPIS.",
