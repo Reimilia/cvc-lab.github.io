@@ -1,12 +1,12 @@
-import * as React from "react"
-import PropTypes from "prop-types"
-import { useSiteMetadata } from "../context/SiteContext"
+import * as React from 'react'
+import PropTypes from 'prop-types'
+import { useSiteMetadata } from '../context/SiteContext'
 
-import Header from "./header"
-import Footer from "./footer"
-import "./layout.css"
+import Header from './header'
+import Footer from './footer'
+import './layout.css'
 
-const Layout = ({ children }) => {
+const Layout = ({ children, headerVariant = 'default' }) => {
   const { title, description, menuLinks } = useSiteMetadata()
 
   return (
@@ -15,9 +15,10 @@ const Layout = ({ children }) => {
         menuLinks={menuLinks}
         siteTitle={title}
         siteDescription={description}
+        variant={headerVariant}
       />
       <div>
-        <main style={{ minHeight: "90vh" }}>{children}</main>
+        <main style={{ minHeight: '90vh' }}>{children}</main>
       </div>
       <Footer />
     </>
@@ -26,6 +27,7 @@ const Layout = ({ children }) => {
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  headerVariant: PropTypes.oneOf(['default', 'compact', 'nav-only']),
 }
 
 export default Layout

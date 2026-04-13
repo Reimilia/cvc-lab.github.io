@@ -115,6 +115,9 @@
    PUBLICATION CARDS
    ============================================= */
 .publication-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
   margin-bottom: var(--space-xs);
   padding: var(--space-md);
   border-radius: var(--radius-md);
@@ -126,9 +129,27 @@
   background: var(--color-bg-secondary);
 }
 
+.publication-thumbnail {
+  flex: 0 0 235px;
+  width: 235px;
+  aspect-ratio: 4 / 3;
+  align-self: flex-start;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
+  border: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.publication-thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
 .lower-container-pubs {
+  flex: 1 1 auto;
   background: transparent;
-  padding-left: var(--space-xl);
   font-family: inherit;
   line-height: 1.6;
 }
@@ -241,6 +262,21 @@
    RESPONSIVE
    ============================================= */
 @media (max-width: 600px) {
+  .publication-card {
+    flex-direction: column;
+  }
+
+  .publication-thumbnail {
+    flex-basis: auto;
+  }
+
+  .publication-thumbnail img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    min-height: 0;
+  }
+
   .lower-container-pubs h3,
   .lower-container-pubs h4,
   .lower-container-pubs p {
@@ -248,7 +284,7 @@
   }
 
   .lower-container-pubs {
-    margin-left: 2rem;
+    margin-left: 0;
   }
 
   .year-header {

@@ -1,6 +1,8 @@
 import * as React from 'react'
 import PropTypes from 'prop-types'
 import { useStaticQuery, graphql } from 'gatsby'
+import peopleData from '../data/site/people'
+import projectsData from '../data/site/projects'
 
 // Create a context for site metadata
 export const SiteContext = React.createContext({})
@@ -96,6 +98,8 @@ export const SiteProvider = ({ children }) => {
 
     return {
       ...siteData,
+      peopleCards: peopleData,
+      projectTiles: projectsData,
       hasError: errorState !== null,
       errorMessage: errorState ? errorState.message : null,
     }

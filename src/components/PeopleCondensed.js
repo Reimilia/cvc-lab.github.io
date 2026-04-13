@@ -77,6 +77,13 @@ const PersonCard = ({ person }) => {
   const name = person.name || person.Name
   const position = person.position || person.Position
   const imageName = person.image || person.Image || 'placeholder.png'
+  let imageSrc
+
+  try {
+    imageSrc = require(`../images/people/${imageName}`).default
+  } catch {
+    imageSrc = require('../images/people/placeholder.png').default
+  }
 
   return (
     <div className="person-card-condensed">
@@ -88,11 +95,7 @@ const PersonCard = ({ person }) => {
             className="person-image"
           />
         ) : (
-          <img
-            src={require(`../images/people/${imageName}`).default}
-            alt={`${name}'s profile`}
-            className="person-image"
-          />
+          <img src={imageSrc} alt={`${name}'s profile`} className="person-image" />
         )}
       </div>
       <h3 className="person-name">{name}</h3>
