@@ -126,6 +126,28 @@
   background: var(--color-bg-secondary);
 }
 
+.pub-card-inner {
+  display: flex;
+  align-items: flex-start;
+}
+
+.pub-card-with-thumb {
+  gap: var(--space-lg);
+}
+
+.pub-thumbnail {
+  flex-shrink: 0;
+  width: 200px;
+}
+
+.pub-thumbnail img {
+  width: 100%;
+  height: 150px;
+  border-radius: var(--radius-md);
+  border: 1px solid #e5e7eb;
+  object-fit: cover;
+}
+
 .lower-container-pubs {
   background: transparent;
   padding-left: var(--space-xl);
@@ -274,6 +296,14 @@
   .year-nav-btn {
     padding: 0.2rem 0.5rem;
     font-size: 0.65rem;
+  }
+
+  .pub-thumbnail {
+    width: 140px;
+  }
+
+  .pub-thumbnail img {
+    height: 105px;
   }
 
   .back-to-top {

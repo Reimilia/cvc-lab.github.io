@@ -5,6 +5,12 @@ import './publication_table.css'
 import { database } from '../data/database'
 import { ref, get } from 'firebase/database'
 
+const getDriveImageUrl = link => {
+  if (!link || link === 'NULL') return null
+  const match = link.match(/\/d\/([a-zA-Z0-9_-]+)/)
+  return match ? `https://drive.google.com/thumbnail?id=${match[1]}&sz=w400` : null
+}
+
 const publicationTypeOrder = [
   'Journal Publications',
   'arXiv',
@@ -115,54 +121,71 @@ const PublicationTable = () => {
                   .map(type => (
                     <div key={type} className="type-section">
                       <h4 className="type-header">{type}</h4>
-                      {types[type].map((publication, index) => (
-                        <div
-                          key={generatePublicationKey(publication, index)}
-                          className="publication-card"
-                        >
-                          <div className="lower-container-pubs">
-                            <h3>{publication.Title}</h3>
-                            <h4>{publication.Authors}</h4>
-                            {publication.Location && publication.Location !== 'NULL' && (
-                              <h4
-                                dangerouslySetInnerHTML={{
-                                  __html: DOMPurify.sanitize(`<i>${publication.Location}</i>`),
-                                }}
-                              ></h4>
-                            )}
-                            <div className="pub-links">
-                              {publication.PDFLink &&
-                                publication.PDFLink !== 'NULL' &&
-                                (publication.PDFLink.startsWith('http://') ||
-                                  publication.PDFLink.startsWith('https://')) && (
-                                  <a
-                                    href={publication.PDFLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="pub-link-btn pub-link-pdf"
-                                  >
-                                    <FaFilePdf className="pub-link-icon" />
-                                    PDF
-                                  </a>
+                      {types[type].map((publication, index) => {
+                        const thumbnailUrl = getDriveImageUrl(publication.Thumbnail)
+                        return (
+                          <div
+                            key={generatePublicationKey(publication, index)}
+                            className="publication-card"
+                          >
+                            <div
+                              className={`pub-card-inner${thumbnailUrl ? ' pub-card-with-thumb' : ''}`}
+                            >
+                              {thumbnailUrl && (
+                                <div className="pub-thumbnail">
+                                  <img
+                                    src={thumbnailUrl}
+                                    alt=""
+                                    loading="lazy"
+                                    referrerPolicy="no-referrer"
+                                  />
+                                </div>
+                              )}
+                              <div className="lower-container-pubs">
+                                <h3>{publication.Title}</h3>
+                                <h4>{publication.Authors}</h4>
+                                {publication.Location && publication.Location !== 'NULL' && (
+                                  <h4
+                                    dangerouslySetInnerHTML={{
+                                      __html: DOMPurify.sanitize(`<i>${publication.Location}</i>`),
+                                    }}
+                                  ></h4>
                                 )}
-                              {publication.ProjectLink &&
-                                publication.ProjectLink !== 'NULL' &&
-                                (publication.ProjectLink.startsWith('http://') ||
-                                  publication.ProjectLink.startsWith('https://')) && (
-                                  <a
-                                    href={publication.ProjectLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="pub-link-btn pub-link-project"
-                                  >
-                                    <FaExternalLinkAlt className="pub-link-icon" />
-                                    Project Page
-                                  </a>
-                                )}
+                                <div className="pub-links">
+                                  {publication.PDFLink &&
+                                    publication.PDFLink !== 'NULL' &&
+                                    (publication.PDFLink.startsWith('http://') ||
+                                      publication.PDFLink.startsWith('https://')) && (
+                                      <a
+                                        href={publication.PDFLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pub-link-btn pub-link-pdf"
+                                      >
+                                        <FaFilePdf className="pub-link-icon" />
+                                        PDF
+                                      </a>
+                                    )}
+                                  {publication.ProjectLink &&
+                                    publication.ProjectLink !== 'NULL' &&
+                                    (publication.ProjectLink.startsWith('http://') ||
+                                      publication.ProjectLink.startsWith('https://')) && (
+                                      <a
+                                        href={publication.ProjectLink}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="pub-link-btn pub-link-project"
+                                      >
+                                        <FaExternalLinkAlt className="pub-link-icon" />
+                                        Project Page
+                                      </a>
+                                    )}
+                                </div>
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        )
+                      })}
                     </div>
                   ))}
               </div>
