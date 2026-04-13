@@ -108,7 +108,7 @@ module.exports = [
   },
   {
     name: 'Garvit Bansal',
-    image: 'placeholder.png',
+    image: 'garvit.png',
     position: 'PhD Student',
     status: 'current',
   },
@@ -126,7 +126,7 @@ module.exports = [
   },
   {
     name: 'Thribhuvan Rapolu',
-    image: 'placeholder.png',
+    image: 'thribhuvan.png',
     position: 'Graduate Student',
     status: 'current',
   },
