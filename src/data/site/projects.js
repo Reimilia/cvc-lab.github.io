@@ -7,8 +7,8 @@ module.exports = [
   {
     name: 'DEDRECON',
     description:
-      'Advanced machine learning applied to real-life image visual perception under multi-modality fusion techniques',
-    img_name: 'project_tiles/afc_logo',
+      'Real-time anomaly detection for hyperspectral video using encoder-decoder models that fuse spectral and motion cues.',
+    img_name: 'projects/Projects_Deep Encoder-Decoder',
     link: '/projects/dedrecon',
     tags: ['Computer Vision', 'Scientific ML'],
     date: '2020-09-01',
@@ -16,7 +16,7 @@ module.exports = [
   {
     name: 'Video Imputation',
     description:
-      'On-the fly error-recovery in adaptive streaming, compression, and super resolution',
+      'Methods for repairing missing or corrupted video frames during streaming, compression, and super-resolution.',
     img_name: 'project_tiles/video_imputation_crop',
     link: '/projects/video-imputation',
     tags: ['Computer Vision'],
@@ -25,7 +25,7 @@ module.exports = [
   {
     name: 'MCE-VAE',
     description:
-      'Invariance-based multi-clustering of latent space embeddings for equivariant learning',
+      'A variational learning framework for discovering stable latent clusters in transformed data.',
     img_name: 'project_tiles/mce_vae',
     link: '/projects/mce-vae',
     tags: ['Scientific ML'],
@@ -34,7 +34,7 @@ module.exports = [
   {
     name: 'Sample Complexity',
     description:
-      'Theoretical conditions and algorithmic developments enabling sample-efficient reinforcement learning',
+      'Theory and algorithms for reinforcement learning that achieve better performance with fewer samples.',
     img_name: 'project_tiles/sample_complexity_2',
     link: '/projects/sample-complexity',
     tags: ['Reinforcement Learning'],
@@ -43,7 +43,7 @@ module.exports = [
   {
     name: 'Optimal Control',
     description:
-      'Optimal control problem solving by applying the Pontryagin maximum principle and then solving for a Hamiltonian dynamical system',
+      'Computational methods for solving optimal control problems through Hamiltonian system dynamics.',
     img_name: 'project_tiles/optimal_control_2',
     link: '/projects/optimal-control',
     tags: ['Scientific ML', 'Reinforcement Learning'],
@@ -52,7 +52,7 @@ module.exports = [
   {
     name: 'Adversarial Cloaking',
     description:
-      'Patch-based adversarial attack pipeline for training adversarial patches on 3D human meshes',
+      'Adversarial patches for 3D human meshes that hide people from machine vision systems.',
     img_name: 'project_tiles/adversarial_cloaking_crop',
     link: '/projects/adversarial-cloaking',
     tags: ['Computer Vision', 'Scientific ML'],
@@ -61,7 +61,7 @@ module.exports = [
   {
     name: 'Camera ISP',
     description:
-      'Structured deep learning models that solves the heterogeneous image artifact filtering problem',
+      'Learning-based image signal processing for removing heterogeneous artifacts in camera pipelines.',
     img_name: 'project_tiles/isp_crop',
     link: '/projects/camera-isp',
     tags: ['Computer Vision'],
@@ -79,7 +79,7 @@ module.exports = [
   {
     name: 'Angstrom',
     description:
-      'Multi-resolution geometric data structures and computational mathematics algorithms',
+      'Multi-resolution geometric data structures for scientific computing and large-scale spatial analysis.',
     img_name: 'project_tiles/angstrom',
     link: '/projects/angstrom',
     tags: ['Scientific ML'],
@@ -88,7 +88,7 @@ module.exports = [
   {
     name: 'Spectre',
     description:
-      'Smart data structures and prediction optimization with provable guarantees for spectral and geometric processing',
+      'Fast spectral and geometric processing with data structures and prediction methods that come with guarantees.',
     img_name: 'project_tiles/spectre_logo',
     link: '/projects/spectre',
     tags: ['Scientific ML'],
@@ -96,7 +96,7 @@ module.exports = [
   },
   {
     name: 'Generative Material Design',
-    description: 'Semi-supervised variational inference for generative materials design',
+    description: 'Generative models for designing new materials from limited labeled data.',
     img_name: 'project_tiles/generative_material_logo',
     link: '/projects/generative-material-design',
     tags: ['Scientific ML'],
@@ -114,7 +114,7 @@ module.exports = [
   {
     name: 'Rank-ordered Search-and-Score',
     description:
-      'Multi-Agent Reinforcement Learning for sample efficient Rank-ordered Search-and-Score of giga-pixel images',
+      'Multi-agent reinforcement learning for finding important regions in gigapixel images quickly.',
     img_name: 'project_tiles/search_n_score',
     link: '/projects/search-n-score',
     tags: ['Reinforcement Learning'],
@@ -123,7 +123,7 @@ module.exports = [
   {
     name: 'Physics-informed Neural Networks',
     description:
-      'Robust physics-informed neural networks for solving partial differential equations by capturing the physics induced constraints',
+      'Physics-informed neural networks for solving PDEs while respecting governing physical constraints.',
     img_name: 'project_tiles/robust_pinns',
     link: '/projects/robust-pinns',
     tags: ['Scientific ML'],
@@ -131,8 +131,7 @@ module.exports = [
   },
   {
     name: 'Theoretical Bound for OCF Algorithm',
-    description:
-      'This work aims to provide a more solid theoretical and mathematical understanding of optimal control flow (OCF) algorithm.',
+    description: 'Theory for understanding when and why optimal control flow algorithms work.',
     img_name: 'project_tiles/theoretical_bound',
     link: '/projects/theoretical-bound',
     tags: ['Reinforcement Learning'],
@@ -141,7 +140,7 @@ module.exports = [
   {
     name: 'Real Time Processing of Hyperspectral Video',
     description:
-      'This project showcases various aspects of processing hyperspectral video streams in real-time using advanced machine learning techniques.',
+      'Real-time machine learning for analyzing hyperspectral video streams as they are captured.',
     img_name: 'project_tiles/intelligent_ml',
     link: 'https://cvc-lab.github.io/afc-website/',
     tags: ['Computer Vision'],
@@ -149,8 +148,7 @@ module.exports = [
   },
   {
     name: 'Dueling Neural ODEs',
-    description:
-      'Dueling Neural ODEs seek to enforce stability in learning forward and adjoint dynamic.',
+    description: 'Stable neural ODE methods for learning forward and adjoint dynamics together.',
     img_name: 'project_tiles/dueling_neural_odes',
     link: '/projects/neuralode',
     tags: ['Scientific ML'],
@@ -158,16 +156,16 @@ module.exports = [
   },
   {
     name: "Actionable Intelligence for Combating Parkinson's Disease",
-    description: 'Quick and efficient extraction of patient specific SBR Ratios',
-    img_name: 'project_tiles/parkinsons',
+    description:
+      "Parkinson's disease analysis tools for quickly extracting patient-specific SBR biomarkers.",
+    img_name: 'projects/Actionable Intelligence Parkinsons/Parkinsons Project Thumbnail',
     link: 'https://cvc-lab.github.io/parkinsons-website/',
     tags: ['Health AI/ML'],
     date: '2024-04-06',
   },
   {
     name: 'OC Protein Side-Chain and Folding',
-    description:
-      'This work aims to solve the side-chain packing and protein-folding problem with a continuous RL framework.',
+    description: 'Continuous reinforcement learning for protein side-chain packing and folding.',
     img_name: 'project_tiles/protein_sidechain',
     link: '/projects/protein-sidechain',
     tags: ['Reinforcement Learning'],
@@ -176,8 +174,8 @@ module.exports = [
   {
     name: 'Night-time Aerial Material Segmentation',
     description:
-      'A low-cost solution for robust night-time material segmentation using hyperspectral data with RGB imagery.',
-    img_name: 'project_tiles/aerial_material_segmentation',
+      'Night-time aerial material segmentation that combines hyperspectral sensing with RGB imagery.',
+    img_name: 'projects/Project_Night-time Aerial',
     link: '/projects/aerial-material-segmentation',
     tags: ['Computer Vision'],
     date: '2024-09-12',
@@ -185,7 +183,7 @@ module.exports = [
   {
     name: 'Dynamic Belief Games',
     description:
-      'Predictive Intelligent Networking agents for rapid response decision-making in dynamic, adversarial communication networks.',
+      'Decision-making models for rapid response in dynamic and adversarial communication networks.',
     img_name: 'project_tiles/dynamic_belief_games',
     link: '/projects/dynamic-belief-games',
     tags: ['Reinforcement Learning', 'Scientific ML'],
@@ -194,7 +192,7 @@ module.exports = [
   {
     name: 'SHASTRA',
     description:
-      'CSCW-based collaborative geometric modeling, simulation, interrogative visualization, and design prototyping on networked systems.',
+      'Collaborative tools for geometric modeling, simulation, visualization, and design on networked systems.',
     img_name: 'project_tiles/shastra',
     link: '/projects/shastra',
     tags: ['Scientific ML', 'Computer Vision'],
@@ -203,8 +201,8 @@ module.exports = [
   {
     name: 'Subsurface Flow Modeling',
     description:
-      'Advanced computational methods for modeling and visualizing subsurface flow dynamics in complex geological formations',
-    img_name: 'project_tiles/subsurface_modeling',
+      'Computational models for simulating and visualizing subsurface flow in complex geological formations.',
+    img_name: 'projects/Project_Subsurface Flow Modeling',
     link: '/projects/subsurface-modeling',
     tags: ['Reinforcement Learning', 'Scientific ML'],
     date: '2024-10-20',
@@ -212,8 +210,8 @@ module.exports = [
   {
     name: 'GRL-SNAM',
     description:
-      'Geometric reinforcement learning with Hamiltonian dynamics for simultaneous navigation and mapping in unknown environments',
-    img_name: 'project_tiles/grl_snam',
+      'Geometric reinforcement learning for navigation and mapping in unknown environments.',
+    img_name: 'projects/Project_GRL-SNAM',
     link: '/projects/grl-snam',
     tags: ['Reinforcement Learning', 'Scientific ML'],
     date: '2026-01-01',
@@ -221,7 +219,7 @@ module.exports = [
   {
     name: 'PHAST',
     description:
-      'Port-Hamiltonian neural architecture for stable long-horizon dynamics forecasting across mechanical, electrical, molecular, and ecological systems',
+      'A Port-Hamiltonian neural architecture for stable long-horizon forecasting in dynamical systems.',
     img_name: 'project_tiles/phast',
     link: '/projects/phast',
     tags: ['Scientific ML'],
@@ -229,9 +227,8 @@ module.exports = [
   },
   {
     name: 'Scalable Risk-Averse Well-Placement',
-    description:
-      'Risk-aware shale well selection via quadratic knapsack optimization with randomized SVD acceleration and provable CE-error bounds.',
-    img_name: 'project_tiles/scalable_risk_averse_well_placement',
+    description: 'Scalable risk-aware optimization for choosing well placements in shale fields.',
+    img_name: 'publications/PUB_Scalable Risk-Averse',
     link: '/projects/scalable-risk-averse-well-placement',
     tags: ['Scientific ML'],
     date: '2026-01-01',
@@ -239,8 +236,8 @@ module.exports = [
   {
     name: 'Differential and Pointwise Control RL',
     description:
-      'Hamiltonian differential-dual reinforcement learning with pointwise trajectory updates for sample-efficient scientific computing.',
-    img_name: 'project_tiles/differential_pointwise_rl',
+      'Sample-efficient reinforcement learning that combines differential control updates with pointwise trajectory corrections.',
+    img_name: 'projects/Project_Differential and Pointwise Control',
     link: '/projects/differential-and-pointwise-control-rl',
     tags: ['Reinforcement Learning', 'Scientific ML'],
     date: '2025-12-01',
@@ -248,8 +245,8 @@ module.exports = [
   {
     name: 'Integrated PD Precision Stratification',
     description:
-      "Integrated Parkinson's biomarker stratification across genetics, molecular assays, wearable gait sensing, Bayesian clustering, and calibrated risk modeling.",
-    img_name: 'project_tiles/integrated_pd_precision_stratification',
+      "Bayesian stratification of Parkinson's disease using genetics, molecular assays, wearable sensing, and clinical data.",
+    img_name: 'projects/Project_IntegratedPDPrecision',
     link: '/projects/integrated-pd-precision-stratification',
     tags: ['Health AI/ML', 'Scientific ML'],
     date: '2025-12-04',
@@ -257,8 +254,8 @@ module.exports = [
   {
     name: 'Pathway-Anchored PD Clustering',
     description:
-      "Pathway-aware multimodal MRI, diffusion MRI, and DaT-SPECT clustering reveals interpretable circuit-level signatures in Parkinson's disease via SRVCC and MPIS.",
-    img_name: 'project_tiles/pathway_anchored_pd_clustering',
+      "Multimodal Parkinson's clustering that links imaging patterns to interpretable brain pathways.",
+    img_name: 'publications/PUB_Pathway Anchored Multimodal',
     link: '/projects/pathway-anchored-pd-clustering',
     tags: ['Health AI/ML', 'Scientific ML'],
     date: '2025-12-15',

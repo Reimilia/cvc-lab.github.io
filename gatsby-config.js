@@ -1,5 +1,12 @@
-require('dotenv').config({
+const dotenv = require('dotenv')
+
+dotenv.config({
   path: `.env`,
+})
+
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV || 'development'}`,
+  override: true,
 })
 
 // Import data from separate modules

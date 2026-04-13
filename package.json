@@ -46,6 +46,7 @@
     "deploy": "gatsby build --prefix-paths && gh-pages -d public",
     "build": "gatsby build --prefix-paths",
     "develop": "gatsby develop",
+    "sync:publications": "python3 scripts/sync-publications-json.py",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "gatsby develop",
     "start:quiet": "node start-quiet.js",

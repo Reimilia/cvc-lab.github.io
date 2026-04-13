@@ -114,7 +114,7 @@ module.exports = [
   },
   {
     name: 'Trung Nguyen',
-    image: 'placeholder.png',
+    image: 'Trung Nguyen.jpg',
     position: 'Graduate Student',
     status: 'current',
   },
@@ -132,7 +132,7 @@ module.exports = [
   },
   {
     name: 'Kevin Babu',
-    image: 'placeholder.png',
+    image: 'Kevin_Babu.jpeg',
     position: 'Undergraduate Student',
     status: 'current',
   },
@@ -144,8 +144,8 @@ module.exports = [
   },
   {
     name: 'Krishiv Potluri',
-    image: 'placeholder.png',
-    position: 'Researcher',
+    image: 'Krishiv_Potluri.png',
+    position: 'Undergraduate Student',
     status: 'current',
   },
   {
@@ -164,7 +164,7 @@ module.exports = [
     name: 'Aditya Sai',
     image: 'placeholder.png',
     position: 'Graduate Student',
-    status: 'alumni',
+    status: 'current',
   },
   {
     name: 'Alexey Izmailov',
@@ -174,7 +174,7 @@ module.exports = [
   },
   {
     name: 'Arya Anantula',
-    image: 'placeholder.png',
+    image: 'Arya Anantula.png',
     position: 'Undergraduate Student',
     status: 'current',
   },
@@ -241,6 +241,12 @@ module.exports = [
   {
     name: 'Ruiqui Zuo',
     image: 'placeholder.png',
+    position: 'Undergraduate Student',
+    status: 'current',
+  },
+  {
+    name: 'Priyanshi Yadav',
+    image: 'Priyanshi Yadav.png',
     position: 'Undergraduate Student',
     status: 'current',
   },

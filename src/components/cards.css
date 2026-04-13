@@ -91,6 +91,8 @@ p {
 
 .member-grid-item {
   overflow: hidden;
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 
 .student-titles {
@@ -105,4 +107,18 @@ p {
   font-size: 1.2rem;
   font-weight: 600;
   margin-bottom: 1rem;
+}
+
+@media (min-width: 600px) {
+  .member-grid-item {
+    flex: 0 0 33.3333%;
+    max-width: 33.3333%;
+  }
+}
+
+@media (min-width: 900px) {
+  .member-grid-item {
+    flex: 0 0 16.6667%;
+    max-width: 16.6667%;
+  }
 }

@@ -1,4 +1,5 @@
 import * as React from 'react'
+import groupPhoto from '../images/cvc_group photo.jpeg'
 import './AboutCondensed.css'
 
 const AboutCondensed = () => (
@@ -14,30 +15,41 @@ const AboutCondensed = () => (
           spans machine learning, geometric modeling, scientific computing, and biomedical
           applications.
         </p>
+        <div className="about-condensed-logos">
+          <a
+            href="https://www.oden.utexas.edu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="about-logo-link"
+            aria-label="Visit Oden Institute website"
+          >
+            <img
+              src={require('../images/oden.png').default}
+              alt="Oden Institute logo"
+              className="about-logo"
+            />
+          </a>
+          <a
+            href="https://www.cs.utexas.edu/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="about-logo-link"
+            aria-label="Visit UT Computer Science website"
+          >
+            <img
+              src={require('../images/cs.png').default}
+              alt="UT CS logo"
+              className="about-logo"
+            />
+          </a>
+        </div>
       </div>
-      <div className="about-condensed-logos">
-        <a
-          href="https://www.oden.utexas.edu/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="about-logo-link"
-          aria-label="Visit Oden Institute website"
-        >
-          <img
-            src={require('../images/oden.png').default}
-            alt="Oden Institute logo"
-            className="about-logo"
-          />
-        </a>
-        <a
-          href="https://www.cs.utexas.edu/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="about-logo-link"
-          aria-label="Visit UT Computer Science website"
-        >
-          <img src={require('../images/cs.png').default} alt="UT CS logo" className="about-logo" />
-        </a>
+      <div className="about-condensed-photo-wrapper">
+        <img
+          src={groupPhoto}
+          alt="Computational Visualization Center group"
+          className="about-condensed-photo"
+        />
       </div>
     </div>
   </section>

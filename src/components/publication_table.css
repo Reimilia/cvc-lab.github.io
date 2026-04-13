@@ -115,6 +115,9 @@
    PUBLICATION CARDS
    ============================================= */
 .publication-card {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
   margin-bottom: var(--space-xs);
   padding: var(--space-md);
   border-radius: var(--radius-md);
@@ -126,31 +129,27 @@
   background: var(--color-bg-secondary);
 }
 
-.pub-card-inner {
-  display: flex;
-  align-items: flex-start;
-}
-
-.pub-card-with-thumb {
-  gap: var(--space-lg);
-}
-
-.pub-thumbnail {
-  flex-shrink: 0;
-  width: 200px;
-}
-
-.pub-thumbnail img {
-  width: 100%;
-  height: 150px;
-  border-radius: var(--radius-md);
+.publication-thumbnail {
+  flex: 0 0 235px;
+  width: 235px;
+  aspect-ratio: 4 / 3;
+  align-self: flex-start;
+  overflow: hidden;
+  border-radius: var(--radius-sm);
   border: 1px solid #e5e7eb;
+  background: #fff;
+}
+
+.publication-thumbnail img {
+  display: block;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
 .lower-container-pubs {
+  flex: 1 1 auto;
   background: transparent;
-  padding-left: var(--space-xl);
   font-family: inherit;
   line-height: 1.6;
 }
@@ -263,6 +262,21 @@
    RESPONSIVE
    ============================================= */
 @media (max-width: 600px) {
+  .publication-card {
+    flex-direction: column;
+  }
+
+  .publication-thumbnail {
+    flex-basis: auto;
+  }
+
+  .publication-thumbnail img {
+    width: 100%;
+    max-width: 220px;
+    height: auto;
+    min-height: 0;
+  }
+
   .lower-container-pubs h3,
   .lower-container-pubs h4,
   .lower-container-pubs p {
@@ -270,7 +284,7 @@
   }
 
   .lower-container-pubs {
-    margin-left: 2rem;
+    margin-left: 0;
   }
 
   .year-header {
@@ -296,14 +310,6 @@
   .year-nav-btn {
     padding: 0.2rem 0.5rem;
     font-size: 0.65rem;
-  }
-
-  .pub-thumbnail {
-    width: 140px;
-  }
-
-  .pub-thumbnail img {
-    height: 105px;
   }
 
   .back-to-top {

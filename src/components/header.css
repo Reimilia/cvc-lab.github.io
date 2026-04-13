@@ -2,15 +2,48 @@
 @import '../styles/variables.css';
 
 .site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1100;
+  width: 100%;
   padding: var(--spacing-4) var(--spacing-6);
   background: var(--ut-burnt-orange);
   box-shadow: var(--shadow-md);
+  transition:
+    padding 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.site-header--compact {
+  padding: var(--spacing-3) var(--spacing-6);
+}
+
+.site-header--nav-only {
+  padding: var(--spacing-3) var(--spacing-6);
+}
+
+.site-header--scrolled {
+  padding: var(--spacing-3) var(--spacing-6);
+  box-shadow: var(--shadow-lg);
 }
 
 .header-inner {
   margin: 0 auto;
   max-width: var(--container-max-width);
-  padding-bottom: var(--spacing-6);
+  padding-bottom: var(--spacing-2);
+  transition: padding-bottom 180ms ease;
+}
+
+.header-inner--compact {
+  padding-bottom: var(--spacing-2);
+}
+
+.header-inner--nav-only {
+  padding-bottom: 0;
+}
+
+.header-inner--scrolled {
+  padding-bottom: 0;
 }
 
 .header-flex-container {
@@ -30,21 +63,24 @@
   margin: 0;
 }
 
+.site-title-link--compact {
+  display: inline-flex;
+  margin-top: var(--spacing-3);
+}
+
 .site-title {
-  padding-bottom: var(--spacing-3);
-  font-size: var(--text-4xl);
+  padding-bottom: 0;
+  font-size: clamp(1.9rem, 2.8vw, 3rem);
   font-weight: var(--font-weight-bold);
   letter-spacing: -0.02em;
   margin: 0;
   color: var(--ut-white);
 }
 
-.site-description {
-  margin: 0;
-  color: var(--ut-white);
-  font-size: var(--text-lg);
-  font-weight: var(--font-weight-regular);
-  opacity: 0.9;
+.site-title--compact {
+  padding-bottom: 0;
+  font-size: var(--text-xl);
+  letter-spacing: -0.01em;
 }
 
 @media (max-width: 768px) {
@@ -52,17 +88,30 @@
     padding: var(--spacing-3) var(--spacing-4);
   }
 
+  .site-header--compact {
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+
+  .site-header--nav-only {
+    padding: var(--spacing-3) var(--spacing-4);
+  }
+
   .header-inner {
-    padding-bottom: var(--spacing-4);
+    padding-bottom: var(--spacing-2);
+  }
+
+  .header-inner--compact {
+    padding-bottom: var(--spacing-1);
   }
 
   .site-title {
     font-size: var(--text-2xl);
-    padding-bottom: var(--spacing-2);
+    padding-bottom: 0;
   }
 
-  .site-description {
-    font-size: var(--text-base);
+  .site-title--compact {
+    font-size: var(--text-lg);
+    padding-bottom: 0;
   }
 }
 

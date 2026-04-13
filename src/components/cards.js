@@ -149,13 +149,16 @@ function renderCard(people, showFullTitle = false) {
   const name = people.name || people.Name
   const position = people.position || people.Position
   const imageName = people.image || people.Image || 'placeholder.png'
+  let imageSrc
+
+  try {
+    imageSrc = require(`../images/people/${imageName}`).default
+  } catch {
+    imageSrc = require('../images/people/placeholder.png').default
+  }
 
   return (
-    <Grid
-      key={name}
-      className="member-grid-item"
-      sx={{ gridColumn: { xs: 'span 6', sm: 'span 4', md: 'span 2' } }}
-    >
+    <Grid item xs={6} sm={4} md={2} key={name} className="member-grid-item">
       <div className="Card">
         <div className="upper-container">
           <div className="image-container">
@@ -167,7 +170,7 @@ function renderCard(people, showFullTitle = false) {
               />
             ) : (
               <img
-                src={require(`../images/people/${imageName}`).default}
+                src={imageSrc}
                 alt={`${name}'s profile`}
                 style={{ width: '125px', height: '125px', borderRadius: '50%' }}
               />
