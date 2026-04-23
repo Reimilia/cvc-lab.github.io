@@ -6,12 +6,12 @@ date: '2026-02-19'
 
 # PHAST: Port-Hamiltonian Architecture for Structured Temporal Dynamics Forecasting
 
-**[Shubham Bhardwaj](https://shubhambhardwaj.com)<sup>1,2</sup>, [Chandrajit Bajaj](https://www.cs.utexas.edu/~bajaj/)<sup>1</sup>**
+**[Shubham Bhardwaj](https://scholar.google.com/citations?hl=en&user=50Ue3d4AAAAJ)<sup>1,2</sup>, [Chandrajit Bajaj](https://www.cs.utexas.edu/~bajaj/)<sup>1</sup>**
 
 <sup>1</sup>Department of Computer Science & Oden Institute, The University of Texas at Austin
 <sup>2</sup>[Mihawk.ai](https://mihawk.ai)
 
-**ICLR 2026** &nbsp; | &nbsp; [Paper](https://openreview.net/pdf/e4685a3e980e25762c07c313a4df2963e6a54c00.pdf) &nbsp; | &nbsp; [arXiv](https://arxiv.org/abs/2602.17998) &nbsp; | &nbsp; [Project Page](https://shubham0704.github.io/phast/)
+[Paper](https://arxiv.org/pdf/2602.17998) &nbsp; | &nbsp; [arXiv](https://arxiv.org/abs/2602.17998) &nbsp; | &nbsp; [Project Page](https://shubham0704.github.io/phast/)
 
 ---
 
@@ -139,5 +139,5 @@ Suite summary across thirteen $q$-only benchmarks. Best PHAST regime vs. best ba
 
 ### People
 
-- [Shubham Bhardwaj](https://shubhambhardwaj.com)
+- [Shubham Bhardwaj](https://scholar.google.com/citations?hl=en&user=50Ue3d4AAAAJ)
 - [Chandrajit Bajaj](https://www.cs.utexas.edu/~bajaj/)
