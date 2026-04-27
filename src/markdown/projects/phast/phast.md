@@ -125,11 +125,10 @@ Suite summary across thirteen $q$-only benchmarks. Best PHAST regime vs. best ba
 ### BibTeX
 
 ```bibtex
-@inproceedings{bhardwaj2026phast,
-  title   = {PHAST: Port-Hamiltonian Architecture for Structured
-             Temporal Dynamics Forecasting},
+@article{bhardwaj2026phast,
+  title   = {PHAST: Port-Hamiltonian Architecture for Structured Temporal Dynamics Forecasting},
   author  = {Bhardwaj, Shubham and Bajaj, Chandrajit},
-  booktitle = {International Conference on Learning Representations (ICLR)},
+  journal = {arXiv preprint arXiv:2602.17998},
   year    = {2026},
   url     = {https://arxiv.org/abs/2602.17998}
 }
