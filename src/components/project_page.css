@@ -41,9 +41,26 @@
   line-height: var(--line-height-relaxed);
 }
 
-.embedVideo-container{
+.embedVideo-container {
   text-align: center;
   display: block;
   margin: var(--space-xl) 0;
 }
 
+.project-page-projects-grl-snam .post-body table:first-of-type {
+  table-layout: fixed;
+}
+
+.project-page-projects-grl-snam .post-body table:first-of-type th:first-child,
+.project-page-projects-grl-snam .post-body table:first-of-type td:first-child {
+  display: none;
+}
+
+.project-page-projects-grl-snam .post-body table:first-of-type th,
+.project-page-projects-grl-snam .post-body table:first-of-type td {
+  width: 33.333%;
+}
+
+.project-page-projects-grl-snam .post-body table:first-of-type .gatsby-resp-image-wrapper {
+  width: 100%;
+}

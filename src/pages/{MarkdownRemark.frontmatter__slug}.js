@@ -49,6 +49,9 @@ const SponsorsTemplate = ({ data: { markdownRemark } }) => {
 
 const DefaultTemplate = ({ data: { markdownRemark } }) => {
   const { frontmatter, html } = markdownRemark
+  const projectSlugClass = frontmatter.slug
+    ? `project-page-${frontmatter.slug.replace(/^\/+/, '').replace(/[^a-zA-Z0-9]+/g, '-')}`
+    : ''
 
   const handleGoBack = () => {
     navigate('/projects')
@@ -57,7 +60,7 @@ const DefaultTemplate = ({ data: { markdownRemark } }) => {
   return (
     <Layout>
       <div
-        className="project-page-class"
+        className={`project-page-class ${projectSlugClass}`.trim()}
         id="project-page"
         style={{
           background: 'white',
@@ -138,6 +141,7 @@ ProjectTemplate.propTypes = {
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
         title: PropTypes.string.isRequired,
+        slug: PropTypes.string,
       }).isRequired,
     }).isRequired,
   }).isRequired,
@@ -149,6 +153,7 @@ SponsorsTemplate.propTypes = {
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
         title: PropTypes.string.isRequired,
+        slug: PropTypes.string,
       }).isRequired,
     }).isRequired,
   }).isRequired,
@@ -160,6 +165,7 @@ DefaultTemplate.propTypes = {
       html: PropTypes.string.isRequired,
       frontmatter: PropTypes.shape({
         title: PropTypes.string.isRequired,
+        slug: PropTypes.string,
       }).isRequired,
     }).isRequired,
   }).isRequired,
@@ -172,6 +178,7 @@ export const pageQuery = graphql`
       frontmatter {
         # date(formatString: "MMMM DD, YYYY")
         title
+        slug
       }
     }
   }
