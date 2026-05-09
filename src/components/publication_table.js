@@ -8,6 +8,7 @@ import { database } from '../data/database'
 import { ref, get } from 'firebase/database'
 import scalableRiskAverseThumbnail from '../images/publications/PUB_Scalable Risk-Averse.png'
 import computerAlgebraThumbnail from '../images/publications/PUB_Computer Algebra.png'
+import perennialLearningThumbnail from '../images/publications/PUB_Perennial Learning.png'
 import phastThumbnail from '../images/publications/PUB_PHASTPort-Hamiltonian.png'
 import grlSnamThumbnail from '../images/publications/PUB_GRL‑SNAM.png'
 import compositionalElbosThumbnail from '../images/publications/PUB_Compositional ELBOs.png'
@@ -67,6 +68,11 @@ const publicationThumbnailMap = {
     src: computerAlgebraThumbnail,
     alt: 'Computer Algebra Meets Hamiltonian Geometry publication thumbnail',
   },
+  'The Physics, Information, and Computation of Perennial Learning: Kolmogorov Complexity, Information Distance and Port-Hamiltonian Thermodynamics':
+    {
+      src: perennialLearningThumbnail,
+      alt: 'Perennial Learning via Port-Hamiltonian Dynamics publication thumbnail',
+    },
   'PHAST: Port-Hamiltonian Architecture for Structured Temporal Dynamics Forecasting': {
     src: phastThumbnail,
     alt: 'PHAST publication thumbnail',
