@@ -9,21 +9,10 @@ const overviewImage = `${RELEASE_BASE}/DBG_overview.png`
 
 const branchLinks = [
   {
-    title: 'DBG Overview',
-    description: 'Project narrative, validation story, demo summary, team, and contacts.',
-    to: '/projects/dynamic-belief-games/overview',
-    label: 'Public',
-  },
-  {
-    title: 'Systems & Protocols',
-    description: 'Radio simulation, protocol stack, controller boundary, and PIN overlays.',
-    to: '/projects/dynamic-belief-games/internal/systems-protocols',
-    label: 'Protected',
-  },
-  {
-    title: 'DBG Gym & Visualization',
-    description: 'Digital twin, scene controls, visualization modes, and runtime demo assets.',
-    to: '/projects/dynamic-belief-games/internal/dbg-gym-visualization',
+    title: 'DBG Internal Site',
+    description:
+      'Protected workspace for authorized team members with demos, documentation, protocol notes, and internal project material.',
+    href: 'https://cvcdbg.org/',
     label: 'Protected',
   },
 ]
@@ -41,24 +30,20 @@ const DbgProjectHome = () => (
           <p>
             DBG trains intelligent networking agents inside a digital-twin environment so mobile ad
             hoc networks can reason about terrain, interference, route choice, and mission risk
-            before deployment.
+            before deployment. This public page stays intentionally high level; deeper project
+            material is available only through the protected internal site.
           </p>
         </div>
 
-        <div className="dbg-home-visual" aria-label="DBG observer-view video preview">
-          <video
-            className="dbg-home-visual__video"
-            src={observerVideo}
-            poster={videoPoster}
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
+        <div className="dbg-home-visual" aria-label="Dynamic Belief Games layered system preview">
+          <img
+            className="dbg-home-visual__image"
+            src={overviewImage}
+            alt="Layered DBG concept showing intelligent agents, digital twin, and mission environment"
           />
           <div className="dbg-home-visual__caption">
-            <span>Observer-view preview</span>
-            <strong>Digital twin + mission geometry</strong>
+            <span>Concept preview</span>
+            <strong>Mission environment + digital twin + agents</strong>
           </div>
         </div>
       </div>
@@ -75,11 +60,15 @@ const DbgProjectHome = () => (
           </p>
         </div>
         <figure className="dbg-home-stack__figure">
-          <img
-            src={overviewImage}
-            alt="Layered DBG concept showing mission environment, digital twin, and intelligent agents"
-            loading="lazy"
-            decoding="async"
+          <video
+            className="dbg-home-stack__video"
+            src={observerVideo}
+            poster={videoPoster}
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="metadata"
           />
         </figure>
       </div>
@@ -89,24 +78,31 @@ const DbgProjectHome = () => (
       <div className="dbg-shell">
         <div className="dbg-home-tree__header">
           <p className="dbg-home-eyebrow">Explore the Project</p>
-          <h2>Choose a branch</h2>
+          <h2>Internal project access</h2>
           <p>
-            The landing page stays short. Deeper technical material lives in focused pages below.
+            The public page is a teaser for the research direction. Authorized collaborators can
+            continue into the protected internal site for implementation details and project assets.
           </p>
         </div>
 
-        <div className="dbg-home-tree__map">
+        <div className="dbg-home-tree__map dbg-home-tree__map--single">
           <div className="dbg-home-tree__root">
             <span>DBG</span>
           </div>
           <div className="dbg-home-tree__trunk" aria-hidden="true" />
-          <div className="dbg-home-tree__branches">
+          <div className="dbg-home-tree__branches dbg-home-tree__branches--single">
             {branchLinks.map(branch => (
-              <Link className="dbg-home-branch" to={branch.to} key={branch.title}>
+              <a
+                className="dbg-home-branch"
+                href={branch.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                key={branch.title}
+              >
                 <span className="dbg-home-branch__label">{branch.label}</span>
                 <h3>{branch.title}</h3>
                 <p>{branch.description}</p>
-              </Link>
+              </a>
             ))}
           </div>
         </div>

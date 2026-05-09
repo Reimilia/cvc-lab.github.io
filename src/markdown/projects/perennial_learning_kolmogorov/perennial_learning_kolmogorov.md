@@ -11,11 +11,11 @@ slug: '/projects/perennial-learning-kolmogorov'
 
 _Entropy, 2026. Special Issue dedicated to Professor Paul Vitányi._
 
-[[Paper PDF]](/papers/perennial-learning-kolmogorov-final-april2026.pdf) &nbsp; [[Special Issue Flyer]](/papers/vitanyi-80-special-issue-flyer.pdf)
+[[Paper PDF]](/papers/perennial-learning-kolmogorov-final-april2026.pdf)
 
 ---
 
-![Perennial Learning via Port-Hamiltonian Dynamics](../../../images/projects/perennial_learning_kolmogorov/hero.png)
+![Perennial Learning via Port-Hamiltonian Dynamics](../../../images/projects/perennial_learning_kolmogorov/Perennial_thumbnail.png)
 
 ---
 
@@ -44,7 +44,7 @@ The paper interprets each learning episode as a Szilard-style cycle:
 
 The Maxwell's demon analogy is used as a modeling lens, while the formal claims are stated through explicit assumptions, propositions, and computable proxies.
 
-![Four-stage perennial learning flow](../../../images/projects/perennial_learning_kolmogorov/four_steps.png)
+![Four-stage perennial learning flow](../../../images/projects/perennial_learning_kolmogorov/Perennial_steps.png)
 
 ## Perennial Inference Engine
 

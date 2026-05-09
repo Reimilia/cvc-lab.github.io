@@ -6,13 +6,37 @@ import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import { FaArrowRight, FaSearch, FaTimes } from 'react-icons/fa'
 import './tiles-modern.css'
 
-const projectTabs = [
-  'All',
-  'Computer Vision',
-  'Reinforcement Learning',
-  'Scientific ML',
-  'Health AI/ML',
-]
+const projectTabs = ['All', 'Healthcare AI', 'World Models', 'AI for Science']
+
+const worldModelProjectNames = new Set([
+  'PHAST',
+  'GRL-SNAM',
+  'Dynamic Belief Games',
+  'Subsurface Flow Modeling',
+  'Scalable Risk-Averse Well-Placement',
+  'Optimal Control',
+  'Sample Complexity',
+  'Theoretical Bound for OCF Algorithm',
+  'OC Protein Side-Chain and Folding',
+  'Differential and Pointwise Control RL',
+  'The Physics, Information, and Computation of Perennial Learning: Kolmogorov Complexity, Information Distance and Port-Hamiltonian Thermodynamics',
+])
+
+const getProjectThemes = tile => {
+  if (tile.themes && tile.themes.length > 0) {
+    return tile.themes
+  }
+
+  if (tile.tags.includes('Health AI/ML')) {
+    return ['Healthcare AI']
+  }
+
+  if (worldModelProjectNames.has(tile.name) || tile.tags.includes('Reinforcement Learning')) {
+    return ['World Models']
+  }
+
+  return ['AI for Science']
+}
 
 // Featured project names - these are shown in the FeaturedResearch carousel on homepage
 const FEATURED_PROJECTS = [
@@ -76,7 +100,8 @@ const Tiles = ({ projectTiles, showAllProjects = false }) => {
       return (
         tile.name.toLowerCase().includes(query) ||
         tile.description.toLowerCase().includes(query) ||
-        tile.tags.some(tag => tag.toLowerCase().includes(query))
+        tile.tags.some(tag => tag.toLowerCase().includes(query)) ||
+        getProjectThemes(tile).some(theme => theme.toLowerCase().includes(query))
       )
     },
     [debouncedSearch]
@@ -85,7 +110,7 @@ const Tiles = ({ projectTiles, showAllProjects = false }) => {
   const filteredCurrentProjects = React.useMemo(() => {
     let projects = currentProjects
     if (activeTab !== 'All') {
-      projects = projects.filter(tile => tile.tags.includes(activeTab))
+      projects = projects.filter(tile => getProjectThemes(tile).includes(activeTab))
     }
     return projects.filter(matchesSearch)
   }, [currentProjects, activeTab, matchesSearch])
@@ -93,7 +118,7 @@ const Tiles = ({ projectTiles, showAllProjects = false }) => {
   const filteredPastProjects = React.useMemo(() => {
     let projects = pastProjects
     if (activeTab !== 'All') {
-      projects = projects.filter(tile => tile.tags.includes(activeTab))
+      projects = projects.filter(tile => getProjectThemes(tile).includes(activeTab))
     }
     return projects.filter(matchesSearch)
   }, [pastProjects, activeTab, matchesSearch])
@@ -154,8 +179,7 @@ const Tiles = ({ projectTiles, showAllProjects = false }) => {
       <Container maxWidth="lg">
         <h2 className="section-title">{showAllProjects ? 'All Projects' : 'Research'}</h2>
         <p className="section-subtitle">
-          Browse current research across scientific machine learning, reinforcement learning,
-          computer vision, and health AI/ML.
+          Browse current research across Healthcare AI, World Models, and AI for Science.
         </p>
 
         {showAllProjects ? (
@@ -312,6 +336,7 @@ Tiles.propTypes = {
       img_name: PropTypes.string.isRequired,
       link: PropTypes.string.isRequired,
       tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+      themes: PropTypes.arrayOf(PropTypes.string),
       date: PropTypes.string,
       image: PropTypes.object,
     })
@@ -326,6 +351,7 @@ ProjectCard.propTypes = {
     img_name: PropTypes.string.isRequired,
     link: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string).isRequired,
+    themes: PropTypes.arrayOf(PropTypes.string),
     image: PropTypes.object,
   }).isRequired,
 }

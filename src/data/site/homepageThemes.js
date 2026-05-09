@@ -39,6 +39,7 @@ const homepageThemes = [
     ctaHref: '/projects',
     projectNames: [
       'PHAST',
+      'The Physics, Information, and Computation of Perennial Learning: Kolmogorov Complexity, Information Distance and Port-Hamiltonian Thermodynamics',
       'GRL-SNAM',
       'Dynamic Belief Games',
       'Subsurface Flow Modeling',
@@ -64,6 +65,7 @@ const homepageThemes = [
     ctaHref: '/projects',
     projectNames: [
       'Differential and Pointwise Control RL',
+      'The Physics, Information, and Computation of Perennial Learning: Kolmogorov Complexity, Information Distance and Port-Hamiltonian Thermodynamics',
       'Scalable Robust Bayesian Co-Clustering',
       'Scalable Risk-Averse Well-Placement',
       'Subsurface Flow Modeling',

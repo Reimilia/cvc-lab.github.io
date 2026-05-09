@@ -1,7 +1,7 @@
 import * as React from 'react'
 import DOMPurify from 'isomorphic-dompurify'
 import { Link } from 'gatsby'
-import { FaFilePdf, FaExternalLinkAlt, FaArrowUp } from 'react-icons/fa'
+import { FaFilePdf, FaExternalLinkAlt, FaArrowUp, FaTimes } from 'react-icons/fa'
 import PropTypes from 'prop-types'
 import './publication_table.css'
 import { database } from '../data/database'
@@ -173,6 +173,7 @@ const scrollToTop = () => {
 const PublicationTable = ({ publicationData = [] }) => {
   const [firebasePublicationData, setFirebasePublicationData] = React.useState([])
   const [showBackToTop, setShowBackToTop] = React.useState(false)
+  const [previewPublication, setPreviewPublication] = React.useState(null)
 
   React.useEffect(() => {
     if (publicationData.length > 0) {
@@ -199,6 +200,19 @@ const PublicationTable = ({ publicationData = [] }) => {
     window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
+
+  React.useEffect(() => {
+    if (!previewPublication || typeof window === 'undefined') return undefined
+
+    const handleKeyDown = event => {
+      if (event.key === 'Escape') {
+        setPreviewPublication(null)
+      }
+    }
+
+    window.addEventListener('keydown', handleKeyDown)
+    return () => window.removeEventListener('keydown', handleKeyDown)
+  }, [previewPublication])
 
   const resolvedPublicationData =
     publicationData.length > 0 ? publicationData : firebasePublicationData
@@ -238,79 +252,90 @@ const PublicationTable = ({ publicationData = [] }) => {
                   .map(type => (
                     <div key={type} className="type-section">
                       <h4 className="type-header">{type}</h4>
-                      {types[type].map((publication, index) => (
-                        <div
-                          key={generatePublicationKey(publication, index)}
-                          className="publication-card"
-                        >
-                          {publicationThumbnailMap[publication.Title] && (
-                            <div className="publication-thumbnail">
-                              <img
-                                src={publicationThumbnailMap[publication.Title].src}
-                                alt={publicationThumbnailMap[publication.Title].alt}
-                                loading="lazy"
-                              />
-                            </div>
-                          )}
-                          <div className="lower-container-pubs">
-                            <h3>{publication.Title}</h3>
-                            <h4>{publication.Authors}</h4>
-                            {publication.Location && publication.Location !== 'NULL' && (
-                              <h4
-                                dangerouslySetInnerHTML={{
-                                  __html: DOMPurify.sanitize(`<i>${publication.Location}</i>`),
-                                }}
-                              ></h4>
+                      {types[type].map((publication, index) => {
+                        const thumbnail = publicationThumbnailMap[publication.Title]
+
+                        return (
+                          <div
+                            key={generatePublicationKey(publication, index)}
+                            className="publication-card"
+                          >
+                            {thumbnail && (
+                              <button
+                                type="button"
+                                className="publication-thumbnail"
+                                onClick={() =>
+                                  setPreviewPublication({
+                                    title: publication.Title,
+                                    src: thumbnail.src,
+                                    alt: thumbnail.alt,
+                                  })
+                                }
+                                aria-label={`Preview thumbnail for ${publication.Title}`}
+                              >
+                                <img src={thumbnail.src} alt={thumbnail.alt} loading="lazy" />
+                              </button>
                             )}
-                            <div className="pub-links">
-                              {publication.PDFLink &&
-                                publication.PDFLink !== 'NULL' &&
-                                (publication.PDFLink.startsWith('http://') ||
-                                  publication.PDFLink.startsWith('https://')) && (
-                                  <a
-                                    href={publication.PDFLink}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="pub-link-btn pub-link-pdf"
-                                  >
-                                    <FaFilePdf className="pub-link-icon" />
-                                    PDF
-                                  </a>
-                                )}
-                              {(() => {
-                                const projectLink = resolveProjectLink(publication.ProjectLink)
+                            <div className="lower-container-pubs">
+                              <h3>{publication.Title}</h3>
+                              <h4>{publication.Authors}</h4>
+                              {publication.Location && publication.Location !== 'NULL' && (
+                                <h4
+                                  dangerouslySetInnerHTML={{
+                                    __html: DOMPurify.sanitize(`<i>${publication.Location}</i>`),
+                                  }}
+                                ></h4>
+                              )}
+                              <div className="pub-links">
+                                {publication.PDFLink &&
+                                  publication.PDFLink !== 'NULL' &&
+                                  (publication.PDFLink.startsWith('http://') ||
+                                    publication.PDFLink.startsWith('https://')) && (
+                                    <a
+                                      href={publication.PDFLink}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="pub-link-btn pub-link-pdf"
+                                    >
+                                      <FaFilePdf className="pub-link-icon" />
+                                      PDF
+                                    </a>
+                                  )}
+                                {(() => {
+                                  const projectLink = resolveProjectLink(publication.ProjectLink)
 
-                                if (!projectLink) return null
+                                  if (!projectLink) return null
 
-                                const content = (
-                                  <>
-                                    <FaExternalLinkAlt className="pub-link-icon" />
-                                    Project Page
-                                  </>
-                                )
+                                  const content = (
+                                    <>
+                                      <FaExternalLinkAlt className="pub-link-icon" />
+                                      Project Page
+                                    </>
+                                  )
 
-                                return projectLink.isInternal ? (
-                                  <Link
-                                    to={projectLink.to}
-                                    className="pub-link-btn pub-link-project"
-                                  >
-                                    {content}
-                                  </Link>
-                                ) : (
-                                  <a
-                                    href={projectLink.to}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="pub-link-btn pub-link-project"
-                                  >
-                                    {content}
-                                  </a>
-                                )
-                              })()}
+                                  return projectLink.isInternal ? (
+                                    <Link
+                                      to={projectLink.to}
+                                      className="pub-link-btn pub-link-project"
+                                    >
+                                      {content}
+                                    </Link>
+                                  ) : (
+                                    <a
+                                      href={projectLink.to}
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                      className="pub-link-btn pub-link-project"
+                                    >
+                                      {content}
+                                    </a>
+                                  )
+                                })()}
+                              </div>
                             </div>
                           </div>
-                        </div>
-                      ))}
+                        )
+                      })}
                     </div>
                   ))}
               </div>
@@ -324,6 +349,34 @@ const PublicationTable = ({ publicationData = [] }) => {
         <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
           <FaArrowUp />
         </button>
+      )}
+
+      {previewPublication && (
+        <div
+          className="publication-preview-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-label={`Preview image for ${previewPublication.title}`}
+        >
+          <button
+            type="button"
+            className="publication-preview-modal__backdrop"
+            onClick={() => setPreviewPublication(null)}
+            aria-label="Close image preview"
+          />
+          <div className="publication-preview-modal__content">
+            <button
+              type="button"
+              className="publication-preview-modal__close"
+              onClick={() => setPreviewPublication(null)}
+              aria-label="Close image preview"
+            >
+              <FaTimes />
+            </button>
+            <img src={previewPublication.src} alt={previewPublication.alt} />
+            <p>{previewPublication.title}</p>
+          </div>
+        </div>
       )}
     </div>
   )

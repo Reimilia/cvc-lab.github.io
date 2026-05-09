@@ -3,7 +3,6 @@ import { useSiteMetadata } from '../../context/SiteContext'
 import AboutCondensed from '../AboutCondensed'
 import PeopleCondensed from '../PeopleCondensed'
 import HeroSection from './HeroSection'
-import ThemeSelector from './ThemeSelector'
 import ThemeExplainerPanel from './ThemeExplainerPanel'
 import FeaturedProjectsGrid from './FeaturedProjectsGrid'
 import OutputsSection from './OutputsSection'
@@ -11,11 +10,15 @@ import MetricsSection from './MetricsSection'
 import '../../components/home-v2/research-themes.css'
 import publicationData from '../../data/papers.json'
 
-const { homepageThemes, homepageThemeById } = require('../../data/site/homepageThemes')
+const {
+  defaultHomepageThemeId,
+  homepageThemes,
+  homepageThemeById,
+} = require('../../data/site/homepageThemes')
 
 const ResearchThemesLanding = () => {
   const { projectTiles, softwareProjects, newsTiles, peopleCards } = useSiteMetadata()
-  const [activeThemeId, setActiveThemeId] = React.useState(null)
+  const [activeThemeId, setActiveThemeId] = React.useState(defaultHomepageThemeId)
   const activeTheme = activeThemeId ? homepageThemeById[activeThemeId] : null
 
   const handleSelectTheme = themeId => {
@@ -56,44 +59,35 @@ const ResearchThemesLanding = () => {
 
   return (
     <>
-      <HeroSection />
-      <ThemeSelector
+      <HeroSection
         themes={homepageThemes}
         activeThemeId={activeThemeId}
         onSelectTheme={handleSelectTheme}
       />
-      {activeTheme ? (
-        <div id="selected-theme-showcase" className="research-theme-selected-showcase">
-          <aside className="research-theme-side-switcher" aria-label="Switch research theme">
-            <div className="research-themes-shell">
-              <div className="research-theme-side-switcher-card">
-                <span className="research-theme-side-switcher-label">Switch theme</span>
-                {homepageThemes.map(theme => (
-                  <button
-                    key={theme.id}
-                    type="button"
-                    className={`research-theme-side-chip ${
-                      theme.id === activeThemeId ? 'research-theme-side-chip--active' : ''
-                    }`}
-                    onClick={() => handleSelectTheme(theme.id)}
-                    aria-pressed={theme.id === activeThemeId}
-                  >
-                    {theme.title}
-                  </button>
-                ))}
-              </div>
-            </div>
-          </aside>
-          <ThemeExplainerPanel theme={activeTheme} />
-          <FeaturedProjectsGrid theme={activeTheme} projects={activeThemeProjects} />
-        </div>
-      ) : (
-        <section id="selected-theme-showcase" className="research-theme-empty-state">
+      <div id="selected-theme-showcase" className="research-theme-selected-showcase">
+        <aside className="research-theme-side-switcher" aria-label="Switch research theme">
           <div className="research-themes-shell">
-            <p>Choose a research theme above to view its explanation and featured projects.</p>
+            <div className="research-theme-side-switcher-card">
+              <span className="research-theme-side-switcher-label">Switch theme</span>
+              {homepageThemes.map(theme => (
+                <button
+                  key={theme.id}
+                  type="button"
+                  className={`research-theme-side-chip ${
+                    theme.id === activeThemeId ? 'research-theme-side-chip--active' : ''
+                  }`}
+                  onClick={() => handleSelectTheme(theme.id)}
+                  aria-pressed={theme.id === activeThemeId}
+                >
+                  {theme.title}
+                </button>
+              ))}
+            </div>
           </div>
-        </section>
-      )}
+        </aside>
+        <ThemeExplainerPanel theme={activeTheme} />
+        <FeaturedProjectsGrid theme={activeTheme} projects={activeThemeProjects} />
+      </div>
       <OutputsSection
         publicationCount={outputStats.publicationCount}
         softwareCategoryCount={outputStats.softwareCategoryCount}

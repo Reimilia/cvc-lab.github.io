@@ -3,6 +3,9 @@
  * This file contains all research projects
  */
 
+const perennialLearningTitle =
+  'The Physics, Information, and Computation of Perennial Learning: Kolmogorov Complexity, Information Distance and Port-Hamiltonian Thermodynamics'
+
 module.exports = [
   {
     name: 'DEDRECON',
@@ -187,7 +190,8 @@ module.exports = [
     img_name: 'project_tiles/dynamic_belief_games',
     link: '/projects/dynamic-belief-games',
     tags: ['Reinforcement Learning', 'Scientific ML'],
-    date: '2024-09-12',
+    themes: ['World Models'],
+    date: '2025-04-08',
   },
   {
     name: 'SHASTRA',
@@ -226,6 +230,16 @@ module.exports = [
     date: '2026-02-19',
   },
   {
+    name: perennialLearningTitle,
+    description:
+      'Perennial learning framework using Kolmogorov complexity, information distance, and port-Hamiltonian dynamics for safe continual adaptation.',
+    img_name: 'publications/PUB_Perennial Learning',
+    link: '/projects/perennial-learning-kolmogorov',
+    tags: ['Scientific ML'],
+    themes: ['World Models', 'AI for Science'],
+    date: '2026-04-01',
+  },
+  {
     name: 'Scalable Risk-Averse Well-Placement',
     description: 'Scalable risk-aware optimization for choosing well placements in shale fields.',
     img_name: 'publications/PUB_Scalable Risk-Averse',
@@ -249,7 +263,7 @@ module.exports = [
     img_name: 'publications/PUB_Compositional ELBOs',
     link: '/projects/scalable-robust-bayesian-co-clustering',
     tags: ['Scientific ML'],
-    date: '2025-04-08',
+    date: '2024-09-12',
   },
   {
     name: 'Differential and Pointwise Control RL',
