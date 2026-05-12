@@ -9,6 +9,8 @@ import { ref, get } from 'firebase/database'
 import scalableRiskAverseThumbnail from '../images/publications/PUB_Scalable Risk-Averse.png'
 import computerAlgebraThumbnail from '../images/publications/PUB_Computer Algebra.png'
 import perennialLearningThumbnail from '../images/publications/PUB_Perennial Learning.png'
+import materialAwareHamiltonianThumbnail from '../images/projects/Learning Material-Aware Hamiltonian_Thumbnail.png'
+import descentTooStableThumbnail from '../images/projects/When Descent Is Too Stable_Thumbnail.png'
 import phastThumbnail from '../images/publications/PUB_PHASTPort-Hamiltonian.png'
 import grlSnamThumbnail from '../images/publications/PUB_GRL‑SNAM.png'
 import compositionalElbosThumbnail from '../images/publications/PUB_Compositional ELBOs.png'
@@ -73,6 +75,14 @@ const publicationThumbnailMap = {
       src: perennialLearningThumbnail,
       alt: 'Perennial Learning via Port-Hamiltonian Dynamics publication thumbnail',
     },
+  'Learning Material-Aware Hamiltonian Risk Fields for Safe Navigation': {
+    src: materialAwareHamiltonianThumbnail,
+    alt: 'Learning Material-Aware Hamiltonian Risk Fields for Safe Navigation publication thumbnail',
+  },
+  'When Descent Is Too Stable: Event-Triggered Hamiltonian Learning to Optimize': {
+    src: descentTooStableThumbnail,
+    alt: 'When Descent Is Too Stable publication thumbnail',
+  },
   'PHAST: Port-Hamiltonian Architecture for Structured Temporal Dynamics Forecasting': {
     src: phastThumbnail,
     alt: 'PHAST publication thumbnail',
